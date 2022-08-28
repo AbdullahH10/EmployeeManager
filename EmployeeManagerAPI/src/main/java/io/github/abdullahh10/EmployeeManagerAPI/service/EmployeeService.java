@@ -5,6 +5,7 @@ import io.github.abdullahh10.EmployeeManagerAPI.model.Employee;
 import io.github.abdullahh10.EmployeeManagerAPI.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.UUID;
@@ -32,7 +33,7 @@ public class EmployeeService {
                 .orElseThrow(() -> new UserNotFoundException("User by id "+id+" was not found!"));
     }
 
-    public Employee updateEmployee(Employee employee) {
+    public Employee updateEmployee(@RequestBody Employee employee) {
         return employeeRepo.save(employee);
     }
 
