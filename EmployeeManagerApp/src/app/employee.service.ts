@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { Employee } from './employee';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +11,7 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  private apiServerUrl: string = "localhost:8080";
+  private apiServerUrl = environment.apiBaseUrl;
 
   public getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${this.apiServerUrl}/employee/all`);
